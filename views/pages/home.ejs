@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>DroneCast</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 	<header>
@@ -34,25 +35,24 @@
 
 	<script type="text/javascript">
 		function getWeather(){
-	var city = document.getElementById("city").value;
-	console.log("Beggining weather search in " + city);
+			var city = document.getElementById("city").value;
+			console.log("Beggining weather search in " + city);
 
-	var url = '?api.openweathermap.org/data/2.5/weather?q=London&appid=5dd7d13462ea2b7ba5176cd85add7658'
+			var params = { q: 'London', appid: '5dd7d13462ea2b7ba5176cd85add7658' };
 
-	fetch(url)
-	.then(function(response) {
-		return response.text();
-	})
-	.then(function(data) {
-		console.log(data);
-		updatePage(data);
-	});
-}
+			$.get('api.openweathermap.org/data/2.5/weather?', params, function(data, status) {
+				console.log('Back from server with the following results:');
+    			console.log(status);
+    			console.log(data);
 
-function updatePage(data){
-	console.log(data);
-	document.getElementById('response').innerHTML = data;
-}
+    			updatePage(data);
+			});
+		}
+
+		function updatePage(data){
+			console.log(data);
+			document.getElementById('response').innerHTML = data;
+		}
 	</script>
 
 <!--
