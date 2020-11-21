@@ -8,8 +8,9 @@
 		<h1>Welcome to DroneCast!</h1>
 	</header>
 
+<!--
 	<div id="first">
-		<form action="/weather" method="get">
+		<form action="/weather" method="post">
 			<h3>Enter a location to find current weather conditions.</h3>
 			<label for="city">City: </label>
 			<input type="text" name="city" id="city"><br>
@@ -17,25 +18,49 @@
 		</form>
 
 	</div>
+-->
 
-<!--
 	<div id="first">
 		<h3>Enter a location to find current weather conditions.</h3>
 		<label for="city">City: </label>
 		<input type="text" name="city" id="city"><br>
-		<button id="search" name="search" onclick="getCity()">Search</button>
+		<button id="search" name="search" onclick="getWeather()">Search</button>
 	</div>
--->
+
 
 	<div id="second">
 		<p id="response"></p>
 	</div>
 
 	<script type="text/javascript">
+		function getWeather(){
+	var city = document.getElementById("city").value;
+	console.log("Beggining weather search in " + city);
+
+	var url = 'api.openweathermap.org/data/2.5/weather?q=London,uk&appid=5dd7d13462ea2b7ba5176cd85add7658'
+
+	fetch(url)
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(data) {
+		updatePage(data);
+	});
+}
+
+function updatePage(data){
+	console.log(data);
+	document.getElementById('response').innerHTML = data;
+}
+	</script>
+
+<!--
+	<script type="text/javascript">
 		function getCity(){
 		var city = document.getElementById("city").value;
 		document.getElementById("response").innerHTML = city;
 		}
 	</script>
+-->
 </body>
 </html>
