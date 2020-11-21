@@ -1,7 +1,8 @@
 const express = require('express')
 const path = require('path')
-//const fetch = require("node-fetch");
-const weather = require('openweather-apis');
+var request = require('request');
+const fetch = require("node-fetch");
+//const weather = require('openweather-apis');
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000
 const app = express();
@@ -16,9 +17,14 @@ app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 const api_key = '5dd7d13462ea2b7ba5176cd85add7658';
 
+
+/*
 app.post('/weather', (req, res) => {
 	var location = req.body.city;
+	setWeather(location);
+});
 
+function setWeather(location){
 	weather.setLang('en');
 	weather.setCity(location);
 	weather.setUnits('imperial');
@@ -26,12 +32,20 @@ app.post('/weather', (req, res) => {
 
 	weather.getTemperature(function(err, temp) {
 		console.log(temp);
+		setValue(temp);
+
 	});
+}
 
-});
+function setValue(temp){
+	console.log(temp);
+	let val = temp;
+	return val;
+}
+*/
 
 
-/*
+
 app.get('/weather', (req, res) => {
 	const api_url = 'api.openweathermap.org/data/2.5/weather?q=London,uk&appid=5dd7d13462ea2b7ba5176cd85add7658';
 	const response = fetch(api_url);
@@ -39,4 +53,4 @@ app.get('/weather', (req, res) => {
 	console.log(json);
 	//res.json(json);
 });
-*/
+
