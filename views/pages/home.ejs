@@ -34,29 +34,9 @@
 				return response.json();
 			}).then(response => {
 				console.log(response);
+				document.getElementById('second').innerHTML = JSON.stringify(response);
 			});
 		}
 	</script>
-
-<!--
-	<div id="first">
-		<form action="/weather" method="post">
-			<h3>Enter a location to find current weather conditions.</h3>
-			<label for="city">City: </label>
-			<input type="text" name="city" id="city"><br>
-			<input type="submit" name="submit" value="Search API">
-		</form>
-
-	</div>
--->
-
-<!--
-	<script type="text/javascript">
-		function getCity(){
-		var city = document.getElementById("city").value;
-		document.getElementById("response").innerHTML = city;
-		}
-	</script>
--->
 </body>
 </html>
