@@ -41,9 +41,10 @@
 
 	fetch(url)
 	.then(function(response) {
-		return response.json();
+		return response.text();
 	})
 	.then(function(data) {
+		console.log(data);
 		updatePage(data);
 	});
 }
