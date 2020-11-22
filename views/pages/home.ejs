@@ -3,14 +3,15 @@
 <head>
 	<title>DroneCast</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 	<header>
-		<h1>Welcome to DroneCast!</h1>
+		<h1>DroneCast</h1>
 	</header>
 
-	<div id="first">
-		<h3>Enter a location to find current weather conditions.</h3>
+	<div class="first">
+		<h3>Enter a city to find current weather conditions.</h3>
 		<label for="city">City: </label>
 		<input type="text" name="city" id="city"><br>
 		<button id="search" name="search" onclick="getWeather()">Search</button>
@@ -35,6 +36,8 @@
 			}).then(response => {
 				console.log(response);
 				document.getElementById('second').innerHTML = JSON.stringify(response);
+			}).catch(error => {
+				console.error(error);
 			});
 		}
 	</script>
