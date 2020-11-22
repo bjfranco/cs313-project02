@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000
 const app = express();
+require('dotenv').config();
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'public/stylesheets')))

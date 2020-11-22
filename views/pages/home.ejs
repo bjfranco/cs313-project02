@@ -3,6 +3,7 @@
 <head>
 	<title>DroneCast</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type='text/javascript' src='config.js'></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -23,7 +24,7 @@
 
 	<script type="text/javascript">
 		function getWeather(){
-			const api_key = '5dd7d13462ea2b7ba5176cd85add7658';
+			const api_key = //config.API_KEY;
 			var city = document.getElementById("city").value;
 			console.log("Beggining weather search in " + city);
 
