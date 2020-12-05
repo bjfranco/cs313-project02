@@ -5,36 +5,75 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script type='text/javascript' src='config.js'></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header>
 		<h1>DroneCast AZ</h1>
 	</header>
 
-	<div class="first">
-		<!--<h3>Enter a city to find current weather conditions.</h3>
-		<label for="city">City: </label>
-		<input type="text" name="city" id="city"><br>
-	-->
-		<br><label for="location">Select a Drone Park: </label><br>
-		<select name="location" id="location">
-			<option value="Gilbert">Freestone Park</option>
-			<option value="Phoenix">Coyote Basin Park</option>
-			<option value="Cave Creek">Dynamite Park</option>
-			<option value="Mesa">City of Mesa Retention Basin #116</option>
-			<option value="Goodyear">Estrella Mountain Regional Park</option>
+	<br>
+	<div class="flexy">
+		<div class="first">
+			<!--<h3>Enter a city to find current weather conditions.</h3>
+			<label for="city">City: </label>
+			<input type="text" name="city" id="city"><br>
+		-->
+			<h2>Select a Drone Park</h2>
+			<br><label for="location">Arizona Drone Parks: </label><br>
+			<select name="location" id="location">
+				<option value="Gilbert">Freestone Park</option>
+				<option value="Phoenix">Coyote Basin Park</option>
+				<option value="Cave Creek">Dynamite Park</option>
+				<option value="Mesa">City of Mesa Retention Basin #116</option>
+				<option value="Goodyear">Estrella Mountain Regional Park</option>
 
-		</select><br>
+			</select><br><br>
 
-		<button id="search" name="search" onclick="getWeather()">Search</button><br>
+			<button id="search" name="search" onclick="getWeather()">Search</button><br>
+		</div>
+
+		<div id="second">
+			<h2>Current Weather Conditions</h2>
+
+			<div class="left">
+				<h3>Temperature:</h3>
+				<p id="weather"> - </p>
+			</div>
+
+			<div class="right">
+				<h3>Description:</h3>
+				<p id="description"> - </p>
+			</div>
+			
+			<div class="left">
+				<h3>Wind Speed:</h3>
+				<p id="wind"> - </p>
+			</div>
+
+			<div class="right">
+				<h3>Wind Degree:</h3>
+				<p id="wind_deg"> - </p>
+			</div>
+		</div>
 	</div>
 
-	<div id="second">
-		<p id="weather">Weather conditions will appear here.</p>
-		<p id="description"></p>
-		<p id="wind"></p>
-		<p id="wind_deg"></p>
+	<div class="flexy">
+		<div class="third">
+			<h2>Location Information</h2>
+			<p id="address"> - </p>
+		</div>
+
+		<div class="fourth">
+			<h2>Safety Tips</h2>
+			<ul>
+				<li>Always check local flying regulations before piloting a drone.</li>
+				<li>Never fly within proximity of an airport without the proper permissions.</li>
+			</ul>
+		</div>
 	</div>
+
 
 	<script type="text/javascript">
 		function getWeather(){
@@ -51,15 +90,40 @@
 				return response.json();
 			}).then(response => {
 				console.log(response);
-				document.getElementById('weather').innerHTML = "Current Temp: " + response.main.temp;
-				document.getElementById('description').innerHTML = "Description: " + response.weather[0].description;
-				document.getElementById('wind').innerHTML = "Wind Speed: " + response.wind.speed;
-				document.getElementById('wind_deg').innerHTML = "Wind Degree: " + response.wind.deg;
+				document.getElementById('weather').innerHTML = response.main.temp + '°F';
+				document.getElementById('description').innerHTML = response.weather[0].description;
+				document.getElementById('wind').innerHTML = response.wind.speed + ' mph';
+				document.getElementById('wind_deg').innerHTML = response.wind.deg + '°';
 				//document.getElementById('second').innerHTML = JSON.stringify(response);
 			}).catch(error => {
 				console.error(error);
 			});
 		}
+
+		document.addEventListener("click", function(){
+			var city = document.getElementById("location").value;
+			var sAddress = '';
+
+			switch(city){
+				case 'Gilbert':
+					sAddress = '1045 E Juniper Ave, Gilbert, AZ 85234';
+					break;
+				case 'Phoenix':
+					sAddress = '2730 E Beardsley Rd, Phoenix, AZ 85050';
+					break;
+				case 'Cave Creek':
+					sAddress = '4550 E Dynamite Blvd, Cave Creek, AZ 85331';
+					break;
+				case 'Mesa':
+					sAddress = '9750 E Elliot Rd, Mesa, AZ 85212';
+					break;
+				case 'Goodyear':
+					sAddress = '14805 W Vineyard Ave, Goodyear, AZ 85338';
+					break;
+			}
+
+			document.getElementById('address').innerHTML = sAddress;
+		});
 	</script>
 </body>
 </html>

@@ -1,6 +1,12 @@
 header {
-	background-color: black;
+	background-image: url('drone.jpg');
+	/*background-position: center;*/
+	/*background-attachment: fixed;*/
+	/*background-size: cover;*/
+  	background-repeat: no-repeat;
+
 	text-align: center;
+	text-shadow: 2px 2px black;
 	justify-content: center;
 	align-items: center;
 	border-radius: 5px;
@@ -12,13 +18,48 @@ header h1{
 	align-items: center;
 	color: white;
 	font-size: 50px;
-	/*font-family: 'Dancing Script', cursive;*/
-	/*text-shadow: 1px 1px 1px #01E5A7;*/
-	/*text-shadow: 1px 1px 1px gray;*/
+	font-family: 'Lobster', cursive;
 	display: inline-block;
 }
 
-.first button{
+.flexy {
+	display: flex;
+}
+
+.first {
+	margin: auto;
+  	width: 50%;
+  	float: 1;
+  	height: auto;
+  	/*border-style: solid;*/
+  	border-radius: 5px;
+  	padding: 10px;
+  	text-align: center;
+  	background-image: url('drone2.jpg');
+  	/*background-attachment: fixed;*/
+  	background-size: cover;
+  	background-repeat: no-repeat;
+}
+
+.first h2 {
+	font-family: 'Lobster', cursive;
+}
+
+.first label {
+	font-family: 'Lobster', cursive;
+	color: white;
+	font-size: 15pt;
+}
+
+.first select {
+	width: 50%;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 12pt;
+	text-align: center;
+}
+
+.first button {
 	background-color: red;
 	color: white;
 	padding: 15px 20px;
@@ -35,9 +76,66 @@ header h1{
 
 #second {
 	margin: auto;
-  	width: 60%;
+  	width: 50%;
+  	float: 2;
   	height: auto;
-  	background-color: lightgray;
+  	/*border-style: solid;*/
   	border-radius: 5px;
   	padding: 10px;
 }
+
+#second h2 {
+	text-align: center;
+	font-family: 'Lobster', cursive;
+}
+
+#second p {
+	border-style: solid;
+	border-radius: 5px;
+	color: white;
+	background-color: black;
+	padding: 5px;
+}
+
+.left {
+	width: 45%;
+	float: left;
+	text-align: center;
+}
+
+.right {
+	width: 45%;
+	float: right;
+	text-align: center;
+}
+
+.third {
+	width: 50%;
+  	float: 1;
+	margin: auto;
+  	height: auto;
+  	border-radius: 5px;
+  	padding: 10px;
+  	text-align: center;
+}
+
+.third h2 {
+	font-family: 'Lobster', cursive;
+	text-align: center;
+}
+
+.fourth {
+  	width: 50%;
+  	float: 2;
+	margin: auto;
+  	height: auto;
+  	border-radius: 5px;
+  	padding: 10px;
+}
+
+.fourth h2 {
+	font-family: 'Lobster', cursive;
+	text-align: center;
+}
+
+
